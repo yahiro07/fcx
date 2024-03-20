@@ -2,14 +2,14 @@ import * as React from "react";
 import { FC, ReactNode } from "react";
 
 export function domStyled(
-  vdom: React.JSX.Element,
+  jsxNode: React.JSX.Element,
   additionalClassName: string | undefined
 ): ReactNode {
   return {
-    ...vdom,
+    ...jsxNode,
     props: {
-      ...vdom.props,
-      className: [vdom.props.className, additionalClassName]
+      ...jsxNode.props,
+      className: [jsxNode.props.className, additionalClassName]
         .filter((it) => !!it)
         .join(" "),
     },
